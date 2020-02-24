@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1 - Logged in</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let socket = io('http://localhost:8080');
+            socket.on('hello', (data) => {
+                console.log('Connected to server')
+                
+            })
+            const buttonSend = document.getElementById('SendResults')
+
+            buttonSend.addEventListener('click', () => {
+                let valresultat = {
+                    valLokal: document.getElementById('valLokal').value,
+                    allmannaPartiet: document.getElementById('allman').value,
+                    speciellaPartiet: document.getElementById('speciell').value,
+                    skarskildaPartiet: document.getElementById('skarskild').value,
+                    ovrigaRoster: document.getElementById('ovrig').value,
+                    ogiltligaRoster: document.getElementById('ogiltlig').value,
+                }
+                
+
+                //Skicka resultat till servern
+                socket.emit('valresultat', valresultat)
+
+
+
+                // Nolla inputfälten
+                document.getElementById('valLokal').value = ''
+                document.getElementById('allman').value = ''
+                document.getElementById('speciell').value = ''
+                document.getElementById('skarskild').value = ''
+                document.getElementById('ovrig').value = ''
+                document.getElementById('ogiltlig').value = ''
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <h1>Rapportera valresultat</h1>
+    <h2>Fyll i resultaten och tryck sedan "Skicka resultat"</h2>
+    
+    <p>Vilken vallokal rapporterar du för?  <input type="text" id="valLokal"></p>
+    <p>Hur många röster fick Allmäna partiet? <input type="text" id="allman"></p>
+    <p>Hur många röster fick Speciella partiet? <input type="text" id="speciell"></p>
+    <p>Hur många röster fick Skärskilda partiet? <input type="text" id="skarskild"></p>
+    <p>Hur många röster hamnade i gruppen "Övriga" <input type="text" id="ovrig"></p>
+    <p>Hur många röster var ogiltliga? <input type="text" id="ogiltlig"></p>
+
+
+    
+    <button id="SendResults">Skicka resultat</button>
+
+
+
+    
+</body>
+</html>
