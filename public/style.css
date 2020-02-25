@@ -1,0 +1,166 @@
+
+body {
+    width: 1000px;
+    height: 1000px;
+    align-content: center;
+}
+select {
+    align-content: center;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 80% 20%;
+    grid-column-gap: 10px;
+    height: 300px;
+    width: 1000px;
+}
+#allmannaDiv {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    align-self: end;
+    display: grid;
+    width: auto;
+    height: 10px;
+    border-radius: 2px;
+    border-color: black;
+    background-color: blue;
+
+}
+#allmannatext {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    align-self: center;
+    justify-content: middle;
+    text-align: center;
+    display: grid;
+    width: auto;
+    height:25px;
+    border-radius: 2px;
+    border-color: black;
+
+}
+#speciellaDiv {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    align-self: end;
+    display: grid;
+    width: auto;
+    height: 10px;
+    border-radius: 2px;
+    border-color: black;
+    background-color: green;
+
+}
+#speciellatext {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    align-self: center;
+    justify-content: middle;
+    text-align: center;
+    display: grid;
+    width: auto;
+    height:25px;
+    border-radius: 2px;
+    border-color: black;
+
+}
+#skarskildaDiv {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    align-self: end;
+    display: grid;
+    width: auto;
+    height: 10px;
+    border-radius: 2px;
+    border-color: black;
+    background-color: gray;
+
+}
+#skarskildatext {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    align-self: center;
+    justify-content: middle;
+    text-align: center;
+    display: grid;
+    width: auto;
+    height:25px;
+    border-radius: 2px;
+    border-color: black;
+
+}
+#ovrigaDiv {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    align-self: end;
+    display: grid;
+    width: auto;
+    height: 10px;
+    border-radius: 2px;
+    border-color: black;
+    background-color: cyan;
+
+}
+#ovrigatext {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    align-self: center;
+    justify-content: middle;
+    text-align: center;
+    display: grid;
+    width: auto;
+    height:25px;
+    border-radius: 2px;
+    border-color: black;
+
+}
+#ogiltligaDiv {
+    grid-column-start: 5;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    align-self: end;
+    display: grid;
+    width: auto;
+    height: 10px;
+    border-radius: 2px;
+    border-color: black;
+    background-color: pink;
+
+}
+#ogiltligatext {
+    grid-column-start: 5;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    align-self: center;
+    justify-content: middle;
+    text-align: center;
+    display: grid;
+    width: auto;
+    height:25px;
+    border-radius: 2px;
+    border-color: black;
+
+}
+h1{
+    text-align: center;
+}

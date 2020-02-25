@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab 1 - Public site</title>
+    
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <script src="/socket.io/socket.io.js"></script>
     <script>
         let valdValLokal = 'alla'
@@ -18,11 +20,11 @@
                 
                 console.log(valresultat)
                 document.getElementById('valLokal').innerHTML = valresultat.valLokal
-                document.getElementById('allmannaPartiet').innerHTML = valresultat.allmannaPartiet
-                document.getElementById('speciellaPartiet').innerHTML = valresultat.speciellaPartiet
-                document.getElementById('skarskildaPartiet').innerHTML = valresultat.skarskildaPartiet
-                document.getElementById('ovrigaRoster').innerHTML = valresultat.ovrigaRoster
-                document.getElementById('ogiltligaRoster').innerHTML = valresultat.ogiltligaRoster
+                document.getElementById('allmannaPartiet').innerHTML = ' Röster: ' + valresultat.allmannaPartiet
+                document.getElementById('speciellaPartiet').innerHTML = ' Röster: ' + valresultat.speciellaPartiet
+                document.getElementById('skarskildaPartiet').innerHTML = ' Röster: ' + valresultat.skarskildaPartiet
+                document.getElementById('ovrigaRoster').innerHTML = ' Röster: ' + valresultat.ovrigaRoster
+                document.getElementById('ogiltligaRoster').innerHTML = ' Röster: ' + valresultat.ogiltligaRoster
                 getPercentages(valresultat)
             })
             let lista = document.getElementById("selector")
@@ -58,12 +60,21 @@
     function getPercentages(valresultat){
         let totalaRoster = valresultat.allmannaPartiet + valresultat.speciellaPartiet + valresultat.skarskildaPartiet + valresultat.ovrigaRoster + valresultat.ogiltligaRoster
 
-        document.getElementById('allmanna%').innerHTML =  ' vilket ger ' + ((valresultat.allmannaPartiet / totalaRoster) * 100).toFixed(1) + '% av det totala antalet röster.'
-        document.getElementById('speciella%').innerHTML =  ' vilket ger ' + ((valresultat.speciellaPartiet / totalaRoster) * 100).toFixed(1) + '% av det totala antalet röster.'
-        document.getElementById('skarskilda%').innerHTML =  ' vilket ger ' + ((valresultat.skarskildaPartiet / totalaRoster) * 100).toFixed(1) + '% av det totala antalet röster.'
-        document.getElementById('ovriga%').innerHTML =  ' vilket ger ' + ((valresultat.ovrigaRoster / totalaRoster) * 100).toFixed(1) + '% av det totala antalet röster.'
-        document.getElementById('ogiltliga%').innerHTML = ' vilket ger ' + ((valresultat.ogiltligaRoster / totalaRoster) * 100).toFixed(1) + '% av det totala antalet röster.'
+        document.getElementById('allmanna%').innerHTML =  'Totalt: ' + ((valresultat.allmannaPartiet / totalaRoster) * 100).toFixed(1) + '% av rösterna'
+        document.getElementById('speciella%').innerHTML =  'Totalt: ' + ((valresultat.speciellaPartiet / totalaRoster) * 100).toFixed(1) + '% av rösterna'
+        document.getElementById('skarskilda%').innerHTML =  'Totalt: ' + ((valresultat.skarskildaPartiet / totalaRoster) * 100).toFixed(1) + '% av rösterna'
+        document.getElementById('ovriga%').innerHTML =  'Totalt: ' + ((valresultat.ovrigaRoster / totalaRoster) * 100).toFixed(1) + '% av rösterna'
+        document.getElementById('ogiltliga%').innerHTML = 'Totalt: ' + ((valresultat.ogiltligaRoster / totalaRoster) * 100).toFixed(1) + '% av rösterna'
         document.getElementById('total').innerHTML = totalaRoster
+
+
+        document.getElementById('allmannaDiv').style.height= ((valresultat.allmannaPartiet / totalaRoster) * 200).toFixed(0) + "px"
+        document.getElementById('speciellaDiv').style.height = ((valresultat.speciellaPartiet / totalaRoster) * 200).toFixed(0) + "px"
+        document.getElementById('skarskildaDiv').style.height = ((valresultat.skarskildaPartiet / totalaRoster) * 200).toFixed(0) + "px"
+        document.getElementById('ovrigaDiv').style.height = ((valresultat.ovrigaRoster / totalaRoster) * 200).toFixed(0) + "px"
+        document.getElementById('ogiltligaDiv').style.height = ((valresultat.ogiltligaroster / totalaRoster) * 200).toFixed(0) + "px"
+        
+        
     }
 
     </script>
@@ -76,15 +87,47 @@
     </select>
 
     <h2>Du kollar nu på vallokalen: <span id="valLokal"></span></h2>
-    <h3>Antalet röster på allmänna partiet: <span id="allmannaPartiet"></span><span id="allmanna%"></span></h3>
-    <h3>Antalet röster på speciella partiet: <span id="speciellaPartiet"></span><span id="speciella%"></span></h3>
-    <h3>Antalet röster på skärskilda partiet: <span id="skarskildaPartiet"></span><span id="skarskilda%"></span></h3>
-    <h3>Antalet övriga röster: <span id="ovrigaRoster"></span><span id="ovriga%"></span></h3>
-    <h3>Antalet ogiltliga röster: <span id="ogiltligaRoster"></span><span id="ogiltliga%"></span></h3>
+
 
 
     <h3>Totalt antal röster: <span id="total"></span></h3>
     
+    <section class="grid">
+        <div id="allmannaDiv"></div>
+        <div id="allmannatext">Allmänna partiet
+            <span id="allmannaPartiet"></span>
+            <span id="allmanna%"></span>
+        </div>
+
+        <div id="speciellaDiv"></div>
+        <div id="speciellatext">Speciella partiet
+            <span id="speciellaPartiet"></span>
+            <span id="speciella%"></span>
+        </div>
+
+        <div id="skarskildaDiv"></div>
+        <div id="skarskildatext">Skärskilda partiet
+            <span id="skarskildaPartiet"></span>
+            <span id="skarskilda%"></span>
+        </div>
+
+        <div id="ovrigaDiv"></div>
+        <div id="ovrigatext">Övriga röster
+            <span id="ovrigaRoster"></span>
+            <span id="ovriga%"></span>
+        </div>
+
+        <div id="ogiltligaDiv"></div>
+        <div id="ogiltligatext">Ogiltliga röster
+            <span id="ogiltligaRoster"></span>
+            <span id="ogiltliga%"></span>
+        </div>
+    </section>
     
+    <!-- <h3>Antalet röster på allmänna partiet: <span id="allmannaPartiet"></span><span id="allmanna%"></span></h3>
+    <h3>Antalet röster på speciella partiet: <span id="speciellaPartiet"></span><span id="speciella%"></span></h3>
+    <h3>Antalet röster på skärskilda partiet: <span id="skarskildaPartiet"></span><span id="skarskilda%"></span></h3>
+    <h3>Antalet övriga röster: <span id="ovrigaRoster"></span><span id="ovriga%"></span></h3>
+    <h3>Antalet ogiltliga röster: <span id="ogiltligaRoster"></span><span id="ogiltliga%"></span></h3> -->
 </body>
 </html>
